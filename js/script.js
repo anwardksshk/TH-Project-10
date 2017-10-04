@@ -1,4 +1,4 @@
-$(document).ready( () => {
+$(document).ready(() => {
 	const employeesContainer = document.getElementById("employees-wrapper");
 	const modalContent = document.getElementById('modal-content');
 	const modalWindow = document.getElementById('modal-window');
