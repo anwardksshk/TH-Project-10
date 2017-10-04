@@ -1,0 +1,320 @@
+.box-overlay { /*overlay for each employee individual box*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.0);
+	z-index: 100;
+	content="";
+	width: 100%;
+	height: 100%;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 22px;
+	color: rgba(0,0,0,.4);
+	display: inline-block;
+	cursor: pointer;
+	transition: transform .1s ease-in;
+}
+
+.close-button:hover,
+.close-button:focus {
+	color: rgba(0,0,0,1);
+}
+
+.close-button:hover {
+	transform: scale(1.2);
+	transition: transform .1s;
+}
+
+.hr {
+	border-top: 1px solid #ccc;
+}
+
+/*GENERAL******************************/
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+  line-height: 1.2;
+	background-color: rgba(0,0,0,.02);
+}
+
+h1, h2, h3	{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+ul	{
+	padding: 0;
+  	list-style-type: none;
+}
+
+/*MAIN******************************/
+
+#wrapper {
+  width: 100%;
+	height: 100%;
+  margin: 0 auto;
+  padding: 30px 5%;
+}
+
+#body-title	{
+	font-size: 1.1em;
+	font-weight: 400;
+	letter-spacing: 1.2px;
+	margin: 16px 5%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#name-filter {
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px 10px;
+	box-sizing: border-box;
+}
+
+#name-filter:focus {
+	outline-width: 0;
+	border: 1px solid orange;
+	box-shadow: 0px 0px 5px orange;
+}
+
+/*EMPLOYEE WRAPPER******************************/
+
+.employeeBox	{
+	border: 1.3px solid #DBDBDB;
+	border-radius: 6px;
+	height: 160px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 3% 0;
+	background-color: white;
+	position: relative;
+	overflow: scroll;
+	padding: 10px;
+	transition: border .3s, box-shadow .3s;
+}
+
+.employeeBox:hover {
+	border: 1px solid pink;
+	box-shadow: 0px 0px 5px pink;
+	transition: border .3s, box-shadow .3s;
+}
+
+.employee-picture {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.employee-name	{
+	font-weight: 700;
+	font-size: 18px;
+	color: #3D4042;
+}
+
+.employee-name,
+.employee-city {
+	text-transform: capitalize;
+}
+
+.employee-email,
+.employee-city {
+	font-size: 15px;
+	margin: 6px 0;
+	color: #797F82;
+}
+
+/*Modal Window******************************/
+#modal-bg	{
+	display:none;
+	background-color: rgba(0,0,0,.5);
+	content="";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index:101;
+}
+
+#modal-content img {
+	height: 120px;
+	width: 120px;
+}
+
+#modal-window {
+	width: 80%;
+	height: 462px;
+	margin: 10%;
+	background-color: white;
+	border-radius: 8px;
+	padding: 30px;
+	position: fixed;
+}
+
+#next-item,
+#prev-item {
+	z-index: 102;
+	content: "";
+	background-image: url('../icons/icon-chevron.svg');
+	background-repeat: no-repeat;
+	background-size: 40px;
+	opacity: .4;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 45%;
+	right: -40px;
+	transition-property: opacity;
+	transition-duration: .3s;
+}
+
+#next-item:hover,
+#prev-item:hover {
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: .5s;
+}
+
+#prev-item {
+	transform: rotate(180deg);
+	left: -40px;
+}
+
+#modal-content {
+	width: 100%;
+	text-align: center;
+	paddign-top: 16px;
+}
+
+.modal-name,
+.modal-city,
+.modal-address,
+.modal-dob {
+	text-transform: capitalize;
+}
+
+.modal-name {
+	font-size: 19px;
+	margin-top: 12px;
+}
+
+.modal-username,
+.modal-email,
+.modal-city,
+.modal-cell,
+.modal-address,
+.modal-dob {
+	font-size: 16px;
+	color: #797F82;
+}
+
+.modal-email,
+.modal-city,
+.modal-cell,
+.modal-address,
+.modal-dob {
+	margin-bottom: 0;
+	margin-top: 14px;
+}
+
+.modal-username {
+	font-size:13px;
+}
+
+.extra-info {
+	margin-top: 28px;
+	padding: 16px;
+}
+
+/*MQ******************************/
+
+/*768px******************************/
+@media screen and (min-width: 768px) {
+
+	#body-title	{
+		margin: 12px 2.5%;
+	}
+
+	#name-filter {
+		max-width: 400px;
+		margin-left: 2.5%;
+	}
+
+/*768px: EMPLOYEE WRAPPER****************/
+
+	.employeeBox	{
+		width: 45%;
+		float: left;
+		margin: 12px 2.5%;
+	}
+
+/*768px: MODAL****************/
+	#modal-window {
+		width: 60%;
+		margin: 10% 20%;
+	}
+
+	#next-item {
+		right: -100px;
+	}
+
+	#prev-item {
+		left: -100px;
+	}
+
+}
+
+/*1024px******************************/
+@media screen and (min-width: 1024px) {
+	#wrapper {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	#body-title	{
+		margin: 12px 1.5%;
+	}
+
+	#name-filter {
+		margin-left: 1.5%;
+	}
+
+
+/*1024px: EMPLOYEE WRAPPER****************/
+
+	.employeeBox	{
+		width: 30%;
+		float: left;
+		margin: 12px 1.5%;
+	}
+
+	.employeeBox:nth-child(3n+2){
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+
+/*1024px: MODAL****************/
+		#modal-window {
+			width: 40%;
+			margin: 10% 30%;
+		}
+
+}
