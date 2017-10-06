@@ -27,7 +27,7 @@ $(document).ready(() => {
 			let state = newMember.location.state;
 			let postcode = newMember.location.postcode;
 			let nat = newMember.nat;
-			let dob = newMember.dob;
+			let dob = newMember.dob.substring(0, 10).replace(/-/g, "/", -1);
 
 			employeeInfo.push({
 				"index" : i,
